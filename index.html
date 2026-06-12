@@ -46,7 +46,7 @@
 let DATA=null, byName={};
 const meta=document.getElementById('meta'), q=document.getElementById('q'), sugbox=document.getElementById('sugbox');
 
-fetch('data.json').then(r=>r.json()).then(d=>{
+fetch('data.json?cb=' + Date.now()).then(r=>r.json()).then(d=>{
   DATA=d;
   for(const c in DATA.stocks){const n=DATA.stocks[c].n; if(n)byName[n]=c;}
   meta.textContent=`資料日期：${DATA.dates[DATA.dates.length-1]}（共 ${DATA.dates.length} 週）　|　${Object.keys(DATA.stocks).length} 檔　|　資料來源：TDCC 集保戶股權分散表`;
