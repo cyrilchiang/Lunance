@@ -1,0 +1,21 @@
+name: backfill history
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+      - name: backfill
+        run: python backfill_portal.py
