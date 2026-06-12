@@ -30,7 +30,7 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0",
     "Referer": PORTAL,
 }
-MONTHS_BACK = 3
+MONTHS_BACK = 12           # 補滿約 1 年（TDCC portal 保存上限）
 COMMIT_EVERY = 10          # 每幾檔存檔一次
 SLEEP = (2.5, 4.0)         # 每筆查詢間隔（秒）
 
